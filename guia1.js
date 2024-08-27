@@ -195,7 +195,46 @@ console.log(nombresEst)
 
 const numbers = [23,3,4,645,43,12,2,1]
 
-const total = numbers.reduce((acumulador, valorActual) => {
-    return acumulador + valorActual
-})
+const total = numbers.reduce((acumulador, valorActual) => acumulador + valorActual)
 console.log(total)
+
+/*Spread Operator
+a) Crea una función que reciba un número indefinido de argumentos y 
+devuelva la suma de todos ellos usando el spread operator.
+b) Dado un array de números, usa el spread operator para encontrar el 
+número máximo.
+c) Combina dos objetos en uno solo utilizando el spread operator.*/
+
+const indef = (...n) => {
+    return n.reduce((acumulador, valorActual) => acumulador + valorActual)
+}
+console.log(indef(1,3,4,5,12,3,2))
+
+const mayornum = (m) => {
+    return m.reduce((acumulador, valorActual) => {
+        return valorActual > acumulador ? valorActual : acumulador
+    })
+};
+
+console.log(mayornum(numbers))
+
+let objeto1 ={
+nombre : "juan",
+edad : 25
+}
+let objeto2 = {
+    nombre : "nico",
+    edad : 33
+}
+const  juntarObjetos = function(...elem){
+    return objetosJuntos = elem
+}
+console.table(juntarObjetos(objeto1,objeto2))
+console.log(typeof(objetosJuntos))
+
+/*a) Dado un objeto con propiedades de una persona, usa destructuring para 
+extraer el nombre y la edad en variables separadas.
+b) Utiliza destructuring en una función para extraer las propiedades de un 
+objeto pasado como argumento.
+c) Dado un array con información de una ciudad (nombre, país, población), 
+usa destructuring para asignar cada elemento a una variable.*/
