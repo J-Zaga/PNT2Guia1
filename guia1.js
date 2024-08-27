@@ -238,3 +238,30 @@ b) Utiliza destructuring en una función para extraer las propiedades de un
 objeto pasado como argumento.
 c) Dado un array con información de una ciudad (nombre, país, población), 
 usa destructuring para asignar cada elemento a una variable.*/
+
+let persona1 = {
+    nombrep: "Matias",
+    edadp: 35
+}
+let {nombrep,edadp} = persona1
+
+console.log(nombrep, edadp)
+
+const extraer = function({nombrep, edadp}){
+    console.log(nombrep)
+    console.log(edadp)  
+}
+extraer(persona1)
+
+const ciudad = ["Buenos Aires", "Argentina", 45000000]
+
+let [ciudad1, pais1, poblacion1] = ciudad
+
+console.log(ciudad1, pais1, poblacion1)
+
+const extraerArray = function([ciudad1, pais1, poblacion1]){
+    console.log(ciudad1)
+    console.log(pais1)
+    console.log(poblacion1)
+}
+extraerArray(ciudad)
