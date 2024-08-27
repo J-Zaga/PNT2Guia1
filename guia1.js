@@ -131,3 +131,71 @@ const escribirMensaje  =  function(nombrePro, precioPro){
   return `Producto ${nombrePro}, precio $${precioPro}`
 }
 console.log(escribirMensaje(producto.nombreProducto, producto.precio))
+
+let error = "Clave incorrecta"
+let descripcion = "La clave ingresada debe tener caracteres especiales"
+console.log(`Error: ${error}. ${descripcion}`)
+
+
+/*Arrow Functions
+a) Convierte la siguiente función tradicional a una arrow function:
+function saludar(nombre) {
+  return "Hola, " + nombre + "!";
+}
+b) Crea una arrow function que reciba un número y devuelva su cuadrado.
+c) Crea una arrow function que reciba dos números y devuelva el mayor de 
+ellos.*/
+const saludar = (nombre) => "Hola " + nombre + "!"
+
+console.log(saludar("juan"))
+
+const cuadrado = (numero) => numero*numero
+
+console.log(cuadrado(4))
+
+const numeroMayor = (num1, num2) => (num1 > num2) ? num1 : num2
+
+console.log(numeroMayor(7,5))
+
+
+/*Métodos de array
+a) Dado un array de números, utiliza 
+filter()  para obtener un nuevo array solo con los números pares.
+b) Crea un array de objetos representando estudiantes con propiedades de 
+nombre y calificación. Usa 
+map()  para obtener un nuevo array solo con los nombres de los estudiantes.
+c) Utiliza 
+reduce()  para calcular la suma de todos los números en un array.*/
+
+let todos = [1,2,3,4,5,6,7,8,9]
+
+const pares = todos.filter(impares => impares % 2 == 0)
+
+console.log(pares)
+
+const estudiantes = [
+{
+    nombre : "martin",
+    calificacion : 10
+},
+{
+    nombre : "susana",
+    calificacion : 8
+},
+{
+    nombre : "juan",
+    calificacion : 9
+}
+]
+console.table(estudiantes)
+
+const nombresEst = estudiantes.map(x => x.nombre)
+
+console.log(nombresEst)
+
+const numbers = [23,3,4,645,43,12,2,1]
+
+const total = numbers.reduce((acumulador, valorActual) => {
+    return acumulador + valorActual
+})
+console.log(total)
