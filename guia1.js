@@ -206,7 +206,8 @@ número máximo.
 c) Combina dos objetos en uno solo utilizando el spread operator.*/
 
 const indef = (...n) => {
-    return n.reduce((acumulador, valorActual) => acumulador + valorActual)
+    //return n.reduce((acumulador, valorActual) => acumulador + valorActual)
+   return n.concat()
 }
 console.log(indef(1,3,4,5,12,3,2))
 
@@ -229,7 +230,7 @@ let objeto2 = {
 const  juntarObjetos = function(...elem){
     return objetosJuntos = elem
 }
-console.table(juntarObjetos(objeto1,objeto2))
+console.log(juntarObjetos(objeto1,objeto2))
 console.log(typeof(objetosJuntos))
 
 /*a) Dado un objeto con propiedades de una persona, usa destructuring para 
