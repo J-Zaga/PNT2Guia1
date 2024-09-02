@@ -169,7 +169,7 @@ reduce()  para calcular la suma de todos los números en un array.*/
 
 let todos = [1,2,3,4,5,6,7,8,9]
 
-const pares = todos.filter(impares => impares % 2 == 0)
+const pares = todos.filter(impares => impares % 2 === 0)
 
 console.log(pares)
 
@@ -206,8 +206,8 @@ número máximo.
 c) Combina dos objetos en uno solo utilizando el spread operator.*/
 
 const indef = (...n) => {
-    //return n.reduce((acumulador, valorActual) => acumulador + valorActual)
-   return n.concat()
+    return n.reduce((acumulador, valorActual) => acumulador + valorActual)
+   //return n.concat()
 }
 console.log(indef(1,3,4,5,12,3,2))
 
