@@ -16,11 +16,11 @@ async function listoParaViajar() {
         })
 
         let listoResultado = dataFiltrada.map((x) => `${x.requisito}`).join(", ")
-        console.log(listoResultado)
+        console.log("Requisitos faltantes: ", listoResultado)
 
         }catch(error){
             console.log(error)
         }
-} 
+}
 
 listoParaViajar()

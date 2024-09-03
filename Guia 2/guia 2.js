@@ -53,7 +53,10 @@ Por último, actualizá el valor del requisito "transporte confirmado" a  false 
 Usá el método  find  para encontrar el requisito correcto en el array 
 preparativos . */
 
-preparativos.find((x) => x.requisitos === "transporte confirmado").valor = false
+let rec = preparativos.find((x) => x.requisitos === "transporte confirmado")
+if(rec){
+    rec.valor = false
+}
 console.table(preparativos)
 
 
