@@ -12,6 +12,7 @@ const preparativos = [
 {requisitos: "dinero", valor: false}
 ]
 
+
 function listoParaViajar(preparativos){
 let listo = preparativos.filter(function(x){
 return x.valor === false
@@ -34,6 +35,8 @@ console.log(listoParaViajar(preparativos))
 
 console.table(preparativos)
 
+
+
 /* Después, eliminá el requisito "seguro de viaje" del array  preparativos . Usá 
 los métodos  findIndex  y  splice  para lograrlo.  */
 
@@ -43,3 +46,22 @@ x.requisitos === "seguro de viaje")
 preparativos.splice(encontrar, 1)
 
 console.table(preparativos)
+
+
+
+/* 
+Por último, actualizá el valor del requisito "transporte confirmado" a  false . 
+Usá el método  find  para encontrar el requisito correcto en el array 
+preparativos . */
+
+preparativos.find((x) => x.requisitos === "transporte confirmado").valor = false
+console.table(preparativos)
+
+
+/* 
+Volvé a ejecutar la función  listoParaViajar  con el array  preparativos  
+modificado y verificá que el resultado muestre los requisitos faltantes 
+correctamente. */
+
+console.log(listoParaViajar(preparativos))
+
