@@ -266,3 +266,19 @@ const extraerArray = function([ciudad1, pais1, poblacion1]){
     console.log(poblacion1)
 }
 extraerArray(ciudad)
+
+const hacerTarea = (tarea)=>{
+    return new Promise((resolve)=> resolve(`Tarea ${tarea} completa`))
+  }
+  
+  
+  hacerTarea("caminar").then(r=> {
+    console.log(r)
+    hacerTarea("saltar").then(r=> {
+      console.log(r)
+      hacerTarea("mirar").then(r=> {
+        console.log(r)
+        console.log("Fin")
+      })
+    })
+  })
