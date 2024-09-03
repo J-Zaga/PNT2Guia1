@@ -4,10 +4,9 @@ desde una API(link debajo). Modificar la funcion  listoParaViajar  para que
 espere los preparativos. Tambien van a tener que modificar la forma de 
 mostrar la informacion final. */
 
-
-async function listoParaViajar() {
+ async function listoParaViajar(url) {
     try{
-        let response = await fetch("https://www.mockachino.com/33754ea7-2586-48/preparativos");
+        let response = await fetch(url);
         let data = await response.json()
         let dataLimpia = data.preparativos
 
@@ -22,5 +21,22 @@ async function listoParaViajar() {
             console.log(error)
         }
 }
+listoParaViajar("https://www.mockachino.com/33754ea7-2586-48/preparativos")
+ 
+/* function listoParaViajar(url) {
+         fetch(url)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            let dataLimpia = data.preparativos;
 
-listoParaViajar()
+            let dataFiltrada = dataLimpia.filter(item => item.valor === false);
+
+            let listoResultado = dataFiltrada.map(item => `${item.requisito}`).join(", ");
+            console.log("Requisitos faltantes: ", listoResultado) 
+        })
+        .catch(error => {
+            console.log('Error:', error);
+        });
+} */
