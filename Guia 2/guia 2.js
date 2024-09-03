@@ -17,13 +17,12 @@ function listoParaViajar(preparativos){
 let listo = preparativos.filter(function(x){
 return x.valor === false
 })
-let listoResultado = listo.map((x) => `${x.requisitos}`).join(", ")
+let listoResultado = listo.map((x) => `${x.requisitos}`).join(" , ")
 if (listoResultado.length < 1){
     return "Listo para viajar"
 }else{
     return listoResultado
 }
-
 }
 
 /* Luego, agregá un nuevo requisito al array  preparativos  utilizando el método 
@@ -64,4 +63,3 @@ modificado y verificá que el resultado muestre los requisitos faltantes
 correctamente. */
 
 console.log(listoParaViajar(preparativos))
-
