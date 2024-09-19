@@ -57,12 +57,33 @@ const tareasFiesta = ref([
   }
 ]);
 
+const eventos = ref([
+  { 
+    nombre: "Halloween", 
+    puntuacionActual: 0 
+  },
+  { nombre: "Navidad",
+   puntuacionActual: 0 
+  },
+  { nombre: "Año Nuevo", 
+    puntuacionActual: 0 
+  },
+  { nombre: "Día de San Valentín",
+    puntuacionActual: 0 
+  },
+  { nombre: "Día de los Muertos", 
+    puntuacionActual: 0 
+  }
+]);
+
 const nombre = ref('')
 const edad = ref('')
 const genero = ref('')
 const filtroGenero = ref('')
 const filtroEstado = ref('')
 const ocultar = ref(true)
+const ocultarVotacion = ref(true)
+const ganador = ref('')
 
 function agregarInvitado(){
   if (nombre.value && edad.value && genero.value){
@@ -92,6 +113,17 @@ const contadorConfirmados = computed(()=>{
   return invitados.value.filter(invitado => invitado.confirmado === true).length
 })
 
+function votar(evento){
+  evento.puntuacionActual = evento.puntuacionActual + 1
+}
+
+function mostrarGanador(){
+  ganador.value = eventos.value.reduce((eventoMaximo, eventoActual) => {
+    return (eventoActual.puntuacionActual > eventoMaximo.puntuacionActual) ? eventoActual : eventoMaximo;
+  }, eventos.value[0]);
+  ocultarVotacion.value = !ocultarVotacion.value
+}
+
 </script>
 
 <template>
@@ -119,6 +151,7 @@ const contadorConfirmados = computed(()=>{
 
 <br>
 <br>
+<h3>Filtrar Invitados</h3>
 <select v-model="filtroGenero">
   <option value="" selected>Seleccione un filtro de genero</option>
   <option value="Masculino">Masculino</option>
@@ -133,17 +166,27 @@ const contadorConfirmados = computed(()=>{
 <h3 v-for="invitado in filtrar">{{ invitado.nombre }}</h3>
 <h3>Invitados Confirmados: {{ contadorConfirmados }}</h3>
 
-<h5 v-show="ocultar" v-for="tarea in tareasFiesta" :key="tarea.nombre" :class="{ pendiente: !tarea.completada }" >
-  {{ tarea.nombre }}
-</h5>
 <button @click="ocultarTareas">Ocultar Tareas Pendientes</button>
+
+<h3 v-show="ocultar" v-for="tarea in tareasFiesta" :key="tarea.nombre" :class="{ pendiente: !tarea.completada }" >
+  {{ tarea.nombre }}
+</h3>
+<h3 v-show="ocultarVotacion" v-for="evento in eventos">  
+  {{ evento.nombre }} - {{ evento.puntuacionActual }}
+  <button v-on:click="votar(evento)">votar</button>
+</h3>
+<h3>  
+  <button v-show="ocultarVotacion" v-on:click="mostrarGanador()">Seleccionar ganador</button>
+</h3>
+<br>
+<h3 v-show="!ocultarVotacion">El ganador es: {{ ganador.nombre }}</h3>
 
 </template>
 
 <style>
-input, select {
+input, select, h3 {
   display: block; 
-  margin-bottom: 10px; 
+  margin: 8px auto; 
 }
 
 .confirmado {
