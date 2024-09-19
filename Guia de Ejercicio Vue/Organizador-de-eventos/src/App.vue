@@ -128,12 +128,14 @@ function mostrarGanador(){
 
 <template>
 
-<h3 v-for="invitado in invitados" :key="invitado.nombre" v-bind:class="{ confirmado: invitado.confirmado, pendiente: !invitado.confirmado }" >
+<h3>
+  <li v-for="invitado in invitados" :key="invitado.nombre" v-bind:class="{ confirmado: invitado.confirmado, pendiente: !invitado.confirmado }" >
   {{ invitado.nombre }}  <span v-if="invitado.confirmado">
     ✓
   </span>
   <span v-else-if="!invitado.confirmado">✖</span>
   <br><button @click="confirmar(invitado)" v-show="!invitado.confirmado">Confirmar </button></br>
+ </li>
 </h3>
 
 <input type="text" v-model="nombre" placeholder="Nombre" required>
@@ -147,8 +149,6 @@ function mostrarGanador(){
 </select>
 <br>
 <button @click="agregarInvitado">Agregar Invitado</button>
-
-
 <br>
 <br>
 <h3>Filtrar Invitados</h3>
