@@ -46,8 +46,6 @@ onMounted(fetchCharacters)
 <img :src="personaje.image" alt="Imagen de {{ personaje.name }}" style="width: 100px; height: auto;"/>
 <br>
  {{ personaje.name }}
-
-
 </h5>
 </div>
 </template>
