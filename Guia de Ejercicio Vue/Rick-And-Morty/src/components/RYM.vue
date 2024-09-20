@@ -12,11 +12,9 @@ async function fetchCharacters () {
         const randomId = Math.floor(Math.random() * 826) + 1
         if (!idsVistos.has(randomId)) { 
             const response = await fetch(`https://rickandmortyapi.com/api/character/${randomId}`)
-            if (response.ok) { 
-                const data = await response.json()
-                personajes.value.push(data)
-                idsVistos.add(randomId)
-            }
+            const data = await response.json()
+            personajes.value.push(data)
+            idsVistos.add(randomId)
         }
     }
 }
@@ -43,7 +41,7 @@ onMounted(fetchCharacters)
 <br>
 <button @click="fetchCharacters()">Nueva lista de 50 personajes</button>
 <h5 v-for="personaje in listaFiltrada" :key="personaje.id">
-<img :src="personaje.image" alt="Imagen de {{ personaje.name }}" style="width: 100px; height: auto;"/>
+<img v-bind:src="personaje.image" alt="Imagen de {{ personaje.name }}" style="width: 100px; height: auto;"/>
 <br>
  {{ personaje.name }}
 </h5>
