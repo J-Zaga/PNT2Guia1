@@ -12,6 +12,7 @@ async function fetchMonedas(){
 function ordenarPorNombre(){
 CriptoMonedas.value.sort((a, b) => a.name.localeCompare(b.name))
 }
+
 function ordenarPorRanking(){
     CriptoMonedas.value.sort((a,b)=> a.rank - b.rank)
 }
@@ -37,9 +38,11 @@ onMounted(fetchMonedas)
     font-weight: bold; 
     text-shadow: 0 0 5px rgba(0, 255, 98, 0.5), 0 0 10px rgba(0, 17, 255, 0.3); 
 }
+
 .high-rank:hover{
     text-shadow: 0 0 5px rgba(0, 255, 34, 0.5), 0 0 10px rgba(0, 255, 34, 0.3)
 }
+
 .arrow-up {
     display: inline-block;
     width: 0; 
@@ -49,6 +52,7 @@ onMounted(fetchMonedas)
     border-bottom: 10px solid rgb(0, 255, 34); /* Color verde */
     margin-left: 5px; /* Espacio entre el nombre y la flecha */
 }
+
 .arrow-down {
     display: inline-block;
     width: 0; 
